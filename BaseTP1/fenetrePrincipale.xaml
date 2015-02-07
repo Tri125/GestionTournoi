@@ -1,0 +1,8 @@
+﻿<Window x:Class="BaseTP1.fenetrePrincipale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="..." Height="350" Width="525">
+    <Grid>
+        <Button Content="Test lecture" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="button1" VerticalAlignment="Top" Width="99" Click="button1_Click" />
+    </Grid>
+</Window>

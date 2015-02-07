@@ -63,11 +63,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FlecheSelectionControle.xaml.cs">
+      <DependentUpon>FlecheSelectionControle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Joueur.cs" />
     <Compile Include="fenetrePrincipale.xaml.cs">
       <DependentUpon>fenetrePrincipale.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="FlecheSelectionControle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

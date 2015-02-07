@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:BaseTP1" x:Class="BaseTP1.fenetrePrincipale"
         Title="Administrateur de Tournoi" Height="350" Width="525">
-    <DockPanel>
+    <DockPanel LastChildFill="True">
         <Menu MinHeight="20" DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
                 <MenuItem Header="Ouvrir"/>
@@ -12,10 +12,12 @@
             <Separator/>
         </Menu>
         <Button DockPanel.Dock="Bottom" Content="Test lecture" Height="23"  Margin="0,10,0,10" x:Name="button1"  Width="99" Click="button1_Click" />
-        <DataGrid Margin="10" MinWidth="200" DockPanel.Dock="Left" x:Name="dgTournois"/>
-        <DataGrid Margin="10" MinWidth="200" DockPanel.Dock="Right" x:Name="dgJoueur"/>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DataGrid  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" x:Name="dgTournois" Margin="26,28,291,28"/>
+            <local:FlecheSelectionControle HorizontalAlignment="Center"  VerticalAlignment="center"/>
+            <DataGrid  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" x:Name="dgJoueur" Margin="290,28,27,28" />
+        </Grid>
 
-        <local:FlecheSelectionControle HorizontalAlignment="Center"  VerticalAlignment="center"/>
 
     </DockPanel>
 </Window>

@@ -15,7 +15,7 @@
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <DataGrid  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" x:Name="dgTournois" Margin="26,28,291,28"/>
             <local:FlecheSelectionControle HorizontalAlignment="Center"  VerticalAlignment="center"/>
-            <DataGrid  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" x:Name="dgJoueur" Margin="290,28,27,28" />
+            <DataGrid x:Name="dgJoueur" AutoGenerateColumns="True"  VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" Margin="290,28,27,28" />
         </Grid>
 
 

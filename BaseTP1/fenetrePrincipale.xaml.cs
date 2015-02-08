@@ -19,6 +19,7 @@ namespace BaseTP1
     /// </summary>
     public partial class fenetrePrincipale : Window
     {
+        private List<Joueur> listeJoueurs;
         public fenetrePrincipale()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace BaseTP1
             {
                 chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
             }
-
+            dgJoueur.ItemsSource = listeJoueurs;
             MessageBox.Show(chaineListe.ToString());
 
             /*

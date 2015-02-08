@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="105" d:DesignWidth="102">
+             d:DesignHeight="209" d:DesignWidth="155">
     <Grid>
-        <Button x:Name="btnGauche" Margin="19,10,19,52" />
-        <Button x:Name="btnDroite" Margin="19,58,19,4"/>
+        <Button x:Name="btnGauche" Margin="0,0,0,115"  />
+        <Button x:Name="btnDroite" Margin="0,93,0,20"/>
     </Grid>
 </UserControl>

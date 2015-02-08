@@ -20,6 +20,7 @@ namespace BaseTP1
     public partial class fenetrePrincipale : Window
     {
         private List<Joueur> listeJoueurs;
+        private List<Joueur> listeParticipantsTournoi;
         public fenetrePrincipale()
         {
             InitializeComponent();
@@ -51,6 +52,11 @@ namespace BaseTP1
 
             Joueur.enregistrerListeJoueurs(lst);
             */
+        }
+
+        private void FlecheSelectionControle_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }        
     }
 }

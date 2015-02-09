@@ -61,7 +61,9 @@ namespace BaseTP1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            teste.Add(new Joueur("-1", "Prénom", "Nom"));
+            teste.Insert(0,new Joueur("-1", "Prénom", "Nom"));
+            dgJoueur.SelectedIndex = 0;
+            dgJoueur.ScrollIntoView(dgJoueur.SelectedItem);
         }
      
     }

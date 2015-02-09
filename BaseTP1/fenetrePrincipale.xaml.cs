@@ -21,9 +21,17 @@ namespace BaseTP1
     {
         private List<Joueur> listeJoueurs;
         private List<Joueur> listeParticipantsTournoi;
+
+        public List<Joueur> ListeJoueurs
+        {
+            get { return listeJoueurs.ToList(); }
+            set { listeJoueurs = value; }
+        }
         public fenetrePrincipale()
         {
             InitializeComponent();
+            btnFlecheDroite.Content = "\u2192";
+            btnFlecheGauche.Content = "\u2190";
         }
 
         /// <summary>
@@ -53,10 +61,6 @@ namespace BaseTP1
             Joueur.enregistrerListeJoueurs(lst);
             */
         }
-
-        private void FlecheSelectionControle_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }        
+     
     }
 }

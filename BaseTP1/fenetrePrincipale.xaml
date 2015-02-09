@@ -12,11 +12,40 @@
             </MenuItem>
             <Separator/>
         </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Command="Open" ToolTip="Chargement de fichier.">
+                    <Image Source="/WpfTutorialSamples;component/Images/copy.png" />
+                </Button>
+                <Button Command="Save" ToolTip="Sauvegarde la liste de joueurs.">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/WpfTutorialSamples;component/Images/paste.png" />
+                        <TextBlock Margin="3,0,0,0">Sauvegarde</TextBlock>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
         <Button DockPanel.Dock="Bottom" Content="Test lecture" Height="23"  Margin="0,10,0,10" x:Name="button1"  Width="99" Click="button1_Click" />
         <Grid>
-            <DataGrid x:Name="dgJoueur" AutoGenerateColumns="True" Margin="390,10,10,10"></DataGrid>
-            <!-- <local:FlecheSelectionControle HorizontalAlignment="Center"  VerticalAlignment="center"/> -->
-            <DataGrid x:Name="dgTournois" Margin="10,10,390,10"/>
+            <DataGrid x:Name="dgTournois" Margin="10,28,390,10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
+                    <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="390,28,10,10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
+                    <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="336,194,0,0" VerticalAlignment="Top" Width="49" Height="21"/>
+            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
+            <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="530,2,0,0" VerticalAlignment="Top"/>
+            <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="111,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
         </Grid>
 
 

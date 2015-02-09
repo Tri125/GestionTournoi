@@ -21,12 +21,14 @@ namespace BaseTP1
     public partial class fenetrePrincipale : Window
     {
         private List<Joueur> listeJoueurs;
-        private List<Joueur> listeParticipantsTournoi;
+        private ObservableCollection<Joueur> listeParticipantsTournoi;
         private ObservableCollection<Joueur> teste;
 
         public fenetrePrincipale()
         {
             InitializeComponent();
+            listeParticipantsTournoi = new ObservableCollection<Joueur>();
+            dgTournois.ItemsSource = listeParticipantsTournoi;
             btnFlecheDroite.Content = "\u2192";
             btnFlecheGauche.Content = "\u2190";
         }
@@ -64,6 +66,17 @@ namespace BaseTP1
             teste.Insert(0,new Joueur("-1", "Prénom", "Nom"));
             dgJoueur.SelectedIndex = 0;
             dgJoueur.ScrollIntoView(dgJoueur.SelectedItem);
+        }
+
+        private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
+        {
+            Joueur selection = dgJoueur.SelectedItem as Joueur;
+            listeParticipantsTournoi.Insert(0, selection);
+        }
+
+        private void btnFlecheDroite_Click(object sender, RoutedEventArgs e)
+        {
+            listeParticipantsTournoi.RemoveAt(dgTournois.SelectedIndex);
         }
      
     }

@@ -42,8 +42,8 @@
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="336,194,0,0" VerticalAlignment="Top" Width="49" Height="21"/>
-            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
+            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="336,194,0,0" VerticalAlignment="Top" Width="49" Height="21" Click="btnFlecheDroite_Click"/>
+            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="btnFlecheGauche_Click"/>
             <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="530,2,0,0" VerticalAlignment="Top"/>
             <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="111,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
             <Button Content="+" HorizontalAlignment="Left" Margin="672,366,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click"/>

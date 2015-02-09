@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -21,12 +22,8 @@ namespace BaseTP1
     {
         private List<Joueur> listeJoueurs;
         private List<Joueur> listeParticipantsTournoi;
+        private ObservableCollection<Joueur> teste;
 
-        public List<Joueur> ListeJoueurs
-        {
-            get { return listeJoueurs.ToList(); }
-            set { listeJoueurs = value; }
-        }
         public fenetrePrincipale()
         {
             InitializeComponent();
@@ -44,14 +41,14 @@ namespace BaseTP1
             StringBuilder chaineListe = new StringBuilder();
 
             // Test de la lecture de fichier, un élément.
-            List<Joueur> listeJoueurs = Joueur.chargerListeJoueurs();
-
+            listeJoueurs = Joueur.chargerListeJoueurs();
+            teste = new ObservableCollection<Joueur>(listeJoueurs);
             foreach (Joueur j in listeJoueurs)
             {
                 chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
             }
-            dgJoueur.ItemsSource = listeJoueurs;
-            MessageBox.Show(chaineListe.ToString());
+            dgJoueur.ItemsSource = teste;
+            //MessageBox.Show(chaineListe.ToString());
 
             /*
             // À titre d'exemple d'écriture. L'exécution de ce code vide votre liste alors, attention!
@@ -60,6 +57,11 @@ namespace BaseTP1
 
             Joueur.enregistrerListeJoueurs(lst);
             */
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            teste.Add(new Joueur("-1", "Prénom", "Nom"));
         }
      
     }

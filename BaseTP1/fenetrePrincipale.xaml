@@ -26,8 +26,8 @@
             </ToolBar>
         </ToolBarTray>
         <Button DockPanel.Dock="Bottom" Content="Test lecture" Height="23"  Margin="0,10,0,10" x:Name="button1"  Width="99" Click="button1_Click" />
-        <Grid>
-            <DataGrid x:Name="dgTournois" Margin="10,28,390,10">
+        <Grid Margin="0,0,0,-10">
+            <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="10,28,390,29">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
@@ -35,7 +35,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="390,28,10,10">
+            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="390,28,10,29">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
@@ -46,6 +46,8 @@
             <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
             <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="530,2,0,0" VerticalAlignment="Top"/>
             <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="111,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
+            <Button Content="+" HorizontalAlignment="Left" Margin="672,366,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click"/>
+            <Label Content="Rajouter un joueur" HorizontalAlignment="Left" Margin="558,359,0,0" VerticalAlignment="Top"/>
         </Grid>
 
 

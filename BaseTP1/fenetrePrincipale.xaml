@@ -15,11 +15,11 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Command="Open" ToolTip="Chargement de fichier.">
-                    <Image Source="/save.png" Height="16" Width="23" />
+                    <Image Source="" Height="16" Width="23" />
                 </Button>
                 <Button Command="Save" ToolTip="Sauvegarde la liste de joueurs.">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/WpfTutorialSamples;component/Images/paste.png" />
+                        <Image Source="/save.png" Height="17" Width="41" />
                         <TextBlock Margin="3,0,0,0">Sauvegarde</TextBlock>
                     </StackPanel>
                 </Button>

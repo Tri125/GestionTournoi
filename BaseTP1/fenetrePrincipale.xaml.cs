@@ -27,8 +27,10 @@ namespace BaseTP1
         public fenetrePrincipale()
         {
             InitializeComponent();
+            teste = new ObservableCollection<Joueur>();
             listeParticipantsTournoi = new ObservableCollection<Joueur>();
             dgTournois.ItemsSource = listeParticipantsTournoi;
+            dgJoueur.ItemsSource = teste;
             btnFlecheDroite.Content = "\u2192";
             btnFlecheGauche.Content = "\u2190";
         }
@@ -43,13 +45,14 @@ namespace BaseTP1
             StringBuilder chaineListe = new StringBuilder();
 
             // Test de la lecture de fichier, un élément.
-            listeJoueurs = Joueur.chargerListeJoueurs();
-            teste = new ObservableCollection<Joueur>(listeJoueurs);
-            foreach (Joueur j in listeJoueurs)
+            foreach (Joueur j in Joueur.chargerListeJoueurs())
+            {
+                teste.Add(j);
+            }
+            foreach (Joueur j in teste)
             {
                 chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
             }
-            dgJoueur.ItemsSource = teste;
             //MessageBox.Show(chaineListe.ToString());
 
             /*

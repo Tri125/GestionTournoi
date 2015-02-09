@@ -15,7 +15,7 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Command="Open" ToolTip="Chargement de fichier.">
-                    <Image Source="/WpfTutorialSamples;component/Images/copy.png" />
+                    <Image Source="/save.png" Height="16" Width="23" />
                 </Button>
                 <Button Command="Save" ToolTip="Sauvegarde la liste de joueurs.">
                     <StackPanel Orientation="Horizontal">

@@ -27,7 +27,7 @@
         </ToolBarTray>
         <Button DockPanel.Dock="Bottom" Content="Test lecture" Height="23"  Margin="0,10,0,10" x:Name="button1"  Width="99" Click="button1_Click" />
         <Grid Margin="0,0,0,-10">
-            <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="10,28,390,29">
+            <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="402,28,10,29">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
@@ -35,19 +35,19 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="390,28,10,29">
+            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="10,28,412,29">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="336,194,0,0" VerticalAlignment="Top" Width="49" Height="21" Click="btnFlecheDroite_Click"/>
-            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="btnFlecheGauche_Click"/>
-            <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="530,2,0,0" VerticalAlignment="Top"/>
-            <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="111,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
-            <Button Content="+" HorizontalAlignment="Left" Margin="672,366,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click"/>
-            <Label Content="Rajouter un joueur" HorizontalAlignment="Left" Margin="558,359,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="346,194,0,0" VerticalAlignment="Top" Width="49" Height="21" Click="btnFlecheDroite_Click" RenderTransformOrigin="1.119,0.41"/>
+            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="346,220,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="btnFlecheGauche_Click" RenderTransformOrigin="0.615,2.884"/>
+            <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Top"/>
+            <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="497,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
+            <Button Content="+" HorizontalAlignment="Left" Margin="260,370,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click" RenderTransformOrigin="-1.143,1.158"/>
+            <Label Content="Rajouter un joueur" HorizontalAlignment="Left" Margin="151,363,0,0" VerticalAlignment="Top"/>
         </Grid>
 
 

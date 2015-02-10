@@ -66,21 +66,26 @@ namespace BaseTP1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            teste.Insert(0,new Joueur("-1", "Prénom", "Nom"));
+            teste.Insert(0, new Joueur("-1", "Prénom", "Nom"));
             dgJoueur.SelectedIndex = 0;
             dgJoueur.ScrollIntoView(dgJoueur.SelectedItem);
         }
 
         private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
         {
-            Joueur selection = dgJoueur.SelectedItem as Joueur;
-            listeParticipantsTournoi.Insert(0, selection);
+            Console.WriteLine(dgTournois.SelectedIndex);
+            if (dgTournois.SelectedIndex >= 0)
+            {
+                listeParticipantsTournoi.RemoveAt(dgTournois.SelectedIndex);
+            }
+
         }
 
         private void btnFlecheDroite_Click(object sender, RoutedEventArgs e)
         {
-            listeParticipantsTournoi.RemoveAt(dgTournois.SelectedIndex);
+            Joueur selection = dgJoueur.SelectedItem as Joueur;
+            listeParticipantsTournoi.Insert(0, selection);
         }
-     
+
     }
 }

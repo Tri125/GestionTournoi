@@ -14,10 +14,10 @@
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Command="Open" ToolTip="Chargement de fichier.">
+                <Button Name="btnChargement" Command="Open" ToolTip="Chargement de fichier.">
                     <Image Source="" Height="16" Width="23" />
                 </Button>
-                <Button Command="Save" ToolTip="Sauvegarde la liste de joueurs.">
+                <Button Name="btnSauvegarde" ToolTip="Sauvegarde la liste de joueurs." Click="btnSauvegarde_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/save.png" Height="17" Width="41" />
                         <TextBlock Margin="3,0,0,0">Sauvegarde</TextBlock>
@@ -42,8 +42,8 @@
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="346,194,0,0" VerticalAlignment="Top" Width="49" Height="21" Click="btnFlecheDroite_Click" RenderTransformOrigin="1.119,0.41"/>
-            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="346,220,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="btnFlecheGauche_Click" RenderTransformOrigin="0.615,2.884"/>
+            <Button x:Name="btnFlecheDroite" HorizontalAlignment="Left" Margin="336,194,0,0" VerticalAlignment="Top" Width="49" Height="21" Click="btnFlecheDroite_Click" RenderTransformOrigin="1.119,0.41"/>
+            <Button x:Name="btnFlecheGauche" HorizontalAlignment="Left" Margin="336,220,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="btnFlecheGauche_Click" RenderTransformOrigin="0.615,2.884"/>
             <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Top"/>
             <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="497,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
             <Button Content="+" HorizontalAlignment="Left" Margin="260,370,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click" RenderTransformOrigin="-1.143,1.158"/>

@@ -73,7 +73,6 @@ namespace BaseTP1
 
         private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(dgTournois.SelectedIndex);
             if (dgTournois.SelectedIndex >= 0)
             {
                 listeParticipantsTournoi.RemoveAt(dgTournois.SelectedIndex);
@@ -85,6 +84,11 @@ namespace BaseTP1
         {
             Joueur selection = dgJoueur.SelectedItem as Joueur;
             listeParticipantsTournoi.Insert(0, selection);
+        }
+
+        private void btnSauvegarde_Click(object sender, RoutedEventArgs e)
+        {
+            Joueur.enregistrerListeJoueurs(teste.ToList());
         }
 
     }

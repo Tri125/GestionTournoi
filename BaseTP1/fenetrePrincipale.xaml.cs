@@ -94,5 +94,10 @@ namespace BaseTP1
             Joueur.enregistrerListeJoueurs(teste.ToList());
         }
 
+        private void btnAppariment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

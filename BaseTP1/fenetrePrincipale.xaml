@@ -16,7 +16,7 @@
             <ToolBar>
                 <Button Name="btnChargement" ToolTip="Chargement de fichier." Click="button1_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="load.png" Height="17" Width="41" />
+                        <Image Source="load.png" Height="21" Width="41" />
                         <Label Margin="3,0,0,0">Ouvrir</Label>
                     </StackPanel>
                    
@@ -25,6 +25,12 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/save.png" Height="17" Width="41" />
                         <Label Margin="3,0,0,0">Sauvegarder</Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Click="btnAppariment_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/trophy.png" Height="27" Width="31" />
+                        <TextBlock Margin="3,0,0,0" Width="100" TextWrapping="Wrap">Génération du tournois</TextBlock>
                     </StackPanel>
                 </Button>
             </ToolBar>

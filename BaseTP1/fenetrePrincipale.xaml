@@ -16,6 +16,7 @@
             <ToolBar>
                 <Button Name="btnChargement" ToolTip="Chargement de fichier." Click="button1_Click">
                     <StackPanel Orientation="Horizontal">
+                        <!--Source: http://iconbug.com/data/b2/256/1273899f5ba2d865ab7cacc73314ccdb.png-->
                         <Image Source="load.png" Height="21" Width="41" />
                         <Label Margin="3,0,0,0">Ouvrir</Label>
                     </StackPanel>
@@ -23,12 +24,14 @@
                 </Button>
                 <Button Name="btnSauvegarde" ToolTip="Sauvegarde la liste de joueurs." Click="btnSauvegarde_Click">
                     <StackPanel Orientation="Horizontal">
+                        <!--Source: http://i.stack.imgur.com/OexJT.png-->
                         <Image Source="/save.png" Height="17" Width="41" />
                         <Label Margin="3,0,0,0">Sauvegarder</Label>
                     </StackPanel>
                 </Button>
                 <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Click="btnAppariment_Click">
                     <StackPanel Orientation="Horizontal">
+                        <!--Source: http://wiki.esial.net/images/logo_trophy.png-->
                         <Image Source="/trophy.png" Height="27" Width="31" />
                         <TextBlock Margin="3,0,0,0" Width="100" TextWrapping="Wrap">Génération du tournois</TextBlock>
                     </StackPanel>

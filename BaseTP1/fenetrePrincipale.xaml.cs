@@ -83,7 +83,10 @@ namespace BaseTP1
         private void btnFlecheDroite_Click(object sender, RoutedEventArgs e)
         {
             Joueur selection = dgJoueur.SelectedItem as Joueur;
-            listeParticipantsTournoi.Insert(0, selection);
+            if (!listeParticipantsTournoi.Contains(selection))
+            {
+                listeParticipantsTournoi.Insert(0, selection);
+            }
         }
 
         private void btnSauvegarde_Click(object sender, RoutedEventArgs e)

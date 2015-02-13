@@ -5,27 +5,30 @@
         Title="Administrateur de Tournoi" Height="508.65" Width="737"
         ResizeMode="NoResize">
     <DockPanel LastChildFill="True">
-        <Menu MinHeight="20" DockPanel.Dock="Top">
+        <!--<Menu MinHeight="20" DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
                 <MenuItem Header="Ouvrir"/>
                 <MenuItem Header="Sauvegarder"/>
             </MenuItem>
             <Separator/>
-        </Menu>
+        </Menu>-->
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Name="btnChargement" Command="Open" ToolTip="Chargement de fichier.">
-                    <Image Source="" Height="16" Width="23" />
+                <Button Name="btnChargement" ToolTip="Chargement de fichier." Click="button1_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="load.png" Height="17" Width="41" />
+                        <Label Margin="3,0,0,0">Ouvrir</Label>
+                    </StackPanel>
+                   
                 </Button>
                 <Button Name="btnSauvegarde" ToolTip="Sauvegarde la liste de joueurs." Click="btnSauvegarde_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/save.png" Height="17" Width="41" />
-                        <TextBlock Margin="3,0,0,0">Sauvegarde</TextBlock>
+                        <Label Margin="3,0,0,0">Sauvegarder</Label>
                     </StackPanel>
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <Button DockPanel.Dock="Bottom" Content="Test lecture" Height="23"  Margin="0,10,0,10" x:Name="button1"  Width="99" Click="button1_Click" />
         <Grid Margin="0,0,0,-10">
             <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="402,28,10,29">
                 <DataGrid.Columns>
@@ -47,7 +50,7 @@
             <Label Content="Joueurs&#xD;&#xA;" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Top"/>
             <Label Content="Inscription au tournoi" HorizontalAlignment="Left" Margin="497,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.895,-0.423"/>
             <Button Content="+" HorizontalAlignment="Left" Margin="260,370,0,0" VerticalAlignment="Top" Width="21" Height="19" Click="Button_Click" RenderTransformOrigin="-1.143,1.158"/>
-            <Label Content="Rajouter un joueur" HorizontalAlignment="Left" Margin="151,363,0,0" VerticalAlignment="Top"/>
+            <Label Content="Ajouter un joueur" HorizontalAlignment="Left" Margin="151,363,0,0" VerticalAlignment="Top"/>
         </Grid>
 
 

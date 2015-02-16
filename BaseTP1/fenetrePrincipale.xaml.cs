@@ -116,12 +116,17 @@ namespace BaseTP1
 
         private void Appariment_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            //Génère le tournois
         }
 
         private void Appariment_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            Console.WriteLine("w");
+            if (listeParticipantsTournoi.Count >= 2)
+            {
+                e.CanExecute = true;
+            }
+            else
+                e.CanExecute = false;
         }
 
 

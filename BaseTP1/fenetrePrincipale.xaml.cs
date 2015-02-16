@@ -67,10 +67,6 @@ namespace BaseTP1
             }
         }
 
-        private void btnAppariment_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnChargement_Click(object sender, RoutedEventArgs e)
         {
@@ -117,6 +113,17 @@ namespace BaseTP1
         {
             isModified = true;
         }
+
+        private void Appariment_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Appariment_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            Console.WriteLine("w");
+        }
+
 
     }
 }

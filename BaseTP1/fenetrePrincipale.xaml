@@ -35,7 +35,11 @@
                     </StackPanel>
                 </Button>
                 <!-- https://stackoverflow.com/questions/757590/disable-save-button-in-wpf-if-validation-fails -->
-                <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Click="btnAppariment_Click" IsEnabled="False">
+                <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Command="NotACommand" >
+                    <Button.CommandBindings>
+                        <CommandBinding Command="NotACommand"
+                                        Executed="Appariment_Executed" CanExecute="Appariment_CanExecute"/>
+                    </Button.CommandBindings>
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://wiki.esial.net/images/logo_trophy.png-->
                         <Image Source="/trophy.png" Height="27" Width="31" />
@@ -45,7 +49,7 @@
             </ToolBar>
         </ToolBarTray>
         <Grid Margin="0,0,0,-10">
-            <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="402,28,10,29">
+            <DataGrid x:Name="dgTournois" AutoGenerateColumns="False" Margin="402,28,10,29" IsReadOnly="True" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />

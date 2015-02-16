@@ -40,29 +40,6 @@ namespace BaseTP1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            StringBuilder chaineListe = new StringBuilder();
-
-            // Test de la lecture de fichier, un élément.
-            foreach (Joueur j in Joueur.chargerListeJoueurs())
-            {
-                teste.Add(j);
-            }
-            foreach (Joueur j in teste)
-            {
-                chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
-            }
-            //MessageBox.Show(chaineListe.ToString());
-
-            /*
-            // À titre d'exemple d'écriture. L'exécution de ce code vide votre liste alors, attention!
-            List<Joueur> lst = new List<Joueur>();
-            lst.Add(new Joueur("12345678", "Joe", "Bleau"));
-
-            Joueur.enregistrerListeJoueurs(lst);
-            */
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -89,14 +66,45 @@ namespace BaseTP1
             }
         }
 
-        private void btnSauvegarde_Click(object sender, RoutedEventArgs e)
+        private void btnAppariment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnChargement_Click(object sender, RoutedEventArgs e)
+        {
+            teste.Clear();
+            listeParticipantsTournoi.Clear();
+            StringBuilder chaineListe = new StringBuilder();
+
+            // Test de la lecture de fichier, un élément.
+            foreach (Joueur j in Joueur.chargerListeJoueurs())
+            {
+                teste.Add(j);
+            }
+            foreach (Joueur j in teste)
+            {
+                chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
+            }
+            //MessageBox.Show(chaineListe.ToString());
+
+            /*
+            // À titre d'exemple d'écriture. L'exécution de ce code vide votre liste alors, attention!
+            List<Joueur> lst = new List<Joueur>();
+            lst.Add(new Joueur("12345678", "Joe", "Bleau"));
+
+            Joueur.enregistrerListeJoueurs(lst);
+            */
+        }
+
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Joueur.enregistrerListeJoueurs(teste.ToList());
         }
 
-        private void btnAppariment_Click(object sender, RoutedEventArgs e)
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = true;
         }
 
     }

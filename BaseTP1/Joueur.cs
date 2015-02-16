@@ -97,7 +97,6 @@ namespace BaseTP1
             for (int i = 0; i < lstJoueurs.Count - 1; i++)
             {
                 int j = App.rand.Next(i, lstJoueurs.Count);
-                lstJoueurs[i] = lstJoueurs[j];
                 Joueur tmp = lstJoueurs[j];
                 lstJoueurs[j] = lstJoueurs[i];
                 lstJoueurs[i] = tmp;

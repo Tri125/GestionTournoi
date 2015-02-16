@@ -12,7 +12,7 @@
             </MenuItem>
             <Separator/>
         </Menu>-->
-        <ToolBarTray DockPanel.Dock="Top">
+        <ToolBarTray DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
             <ToolBar>
                 <Button Name="btnChargement" ToolTip="Chargement de fichier." Click="btnChargement_Click">
                     <StackPanel Orientation="Horizontal">

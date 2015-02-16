@@ -116,14 +116,30 @@ namespace BaseTP1
 
         private void Appariment_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            List<Joueur> teste = new List<Joueur>(listeParticipantsTournoi);
-            //Faire une vrai liste dans l'avenir.
-            Joueur.randomListeJoueurs(teste);
-            listeParticipantsTournoi.Clear();
-            foreach (Joueur j in teste)
+            StringBuilder message = new StringBuilder();
+            Stack<Joueur> stackPairing;
+            List<Joueur> listePairing = new List<Joueur>(listeParticipantsTournoi);
+            Joueur.randomListeJoueurs(listePairing);
+            stackPairing = new Stack<Joueur>(listePairing);
+            bool isEven = (listePairing.Count % 2) == 0;
+            bool isNewPair = false;
+            while (stackPairing.Count != 0)
             {
-                listeParticipantsTournoi.Add(j);
+                message.Append(stackPairing.Pop().Nom);
+                if (stackPairing.Count != 0 && !isNewPair)
+                    message.Append(" vs ");
+                else
+                    if (isNewPair)
+                        message.Append("\n");
+                isNewPair = !isNewPair;
             }
+            if (!isEven)
+            {
+                message.Append(" : Bye\n");
+            }
+            MessageBox.Show(message.ToString());
+
+
         }
 
         private void Appariment_CanExecute(object sender, CanExecuteRoutedEventArgs e)

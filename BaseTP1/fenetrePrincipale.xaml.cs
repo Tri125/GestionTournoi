@@ -20,17 +20,17 @@ namespace BaseTP1
     /// </summary>
     public partial class fenetrePrincipale : Window
     {
-        private List<Joueur> listeJoueurs;
         private ObservableCollection<Joueur> listeParticipantsTournoi;
-        private ObservableCollection<Joueur> teste;
+        private ObservableCollection<Joueur> listeJoueurs;
+        private bool isModified = false;
 
         public fenetrePrincipale()
         {
             InitializeComponent();
-            teste = new ObservableCollection<Joueur>();
+            listeJoueurs = new ObservableCollection<Joueur>();
             listeParticipantsTournoi = new ObservableCollection<Joueur>();
             dgTournois.ItemsSource = listeParticipantsTournoi;
-            dgJoueur.ItemsSource = teste;
+            dgJoueur.ItemsSource = listeJoueurs;
             btnFlecheDroite.Content = "\u2192";
             btnFlecheGauche.Content = "\u2190";
         }
@@ -43,7 +43,8 @@ namespace BaseTP1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            teste.Insert(0, new Joueur("-1", "Prénom", "Nom"));
+            isModified = true;
+            listeJoueurs.Insert(0, new Joueur("-1", "Prénom", "Nom"));
             dgJoueur.SelectedIndex = 0;
             dgJoueur.ScrollIntoView(dgJoueur.SelectedItem);
         }
@@ -73,16 +74,17 @@ namespace BaseTP1
 
         private void btnChargement_Click(object sender, RoutedEventArgs e)
         {
-            teste.Clear();
+            isModified = false;
+            listeJoueurs.Clear();
             listeParticipantsTournoi.Clear();
             StringBuilder chaineListe = new StringBuilder();
 
             // Test de la lecture de fichier, un élément.
             foreach (Joueur j in Joueur.chargerListeJoueurs())
             {
-                teste.Add(j);
+                listeJoueurs.Add(j);
             }
-            foreach (Joueur j in teste)
+            foreach (Joueur j in listeJoueurs)
             {
                 chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
             }
@@ -99,12 +101,21 @@ namespace BaseTP1
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Joueur.enregistrerListeJoueurs(teste.ToList());
+            Joueur.enregistrerListeJoueurs(listeJoueurs.ToList());
+            isModified = false;
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = true;
+            if (isModified)
+                e.CanExecute = true;
+            else
+                e.CanExecute = false;
+        }
+
+        private void dgJoueur_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            isModified = true;
         }
 
     }

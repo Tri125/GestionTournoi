@@ -34,6 +34,7 @@
                         <Label Margin="3,0,0,0">Sauvegarder</Label>
                     </StackPanel>
                 </Button>
+                <!-- https://stackoverflow.com/questions/757590/disable-save-button-in-wpf-if-validation-fails -->
                 <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Click="btnAppariment_Click" IsEnabled="False">
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://wiki.esial.net/images/logo_trophy.png-->
@@ -52,7 +53,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="10,28,412,29">
+            <DataGrid  x:Name="dgJoueur" AutoGenerateColumns="False" Margin="10,28,412,29" CellEditEnding="dgJoueur_CellEditEnding">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />

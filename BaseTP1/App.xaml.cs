@@ -12,5 +12,6 @@ namespace BaseTP1
     /// </summary>
     public partial class App : Application
     {
+        public static Random rand = new Random(Guid.NewGuid().GetHashCode());
     }
 }

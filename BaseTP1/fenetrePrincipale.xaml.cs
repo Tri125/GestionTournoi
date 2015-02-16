@@ -116,7 +116,14 @@ namespace BaseTP1
 
         private void Appariment_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            //Génère le tournois
+            List<Joueur> teste = new List<Joueur>(listeParticipantsTournoi);
+            //Faire une vrai liste dans l'avenir.
+            Joueur.randomListeJoueurs(teste);
+            listeParticipantsTournoi.Clear();
+            foreach (Joueur j in teste)
+            {
+                listeParticipantsTournoi.Add(j);
+            }
         }
 
         private void Appariment_CanExecute(object sender, CanExecuteRoutedEventArgs e)

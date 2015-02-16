@@ -90,6 +90,19 @@ namespace BaseTP1
         { 
             // C'est à vous de coder cette partie. 
             // Utilisez l'algorithme Fisher-Yates (facile à trouver sur internet) et respectez le "contrat" de la méthode.
+
+            //Navigue dans chaque position du Tableau en commencant par la dernière position. Un nombre généré au hasard (dans l'intervalle 0,i) pour inverser la valeur entre
+            //le nombre situé à la position que nous sommes et n'importe quel autre dans l'intervalle. À la fin chaque nombre a été permuté au moins une fois et au hasard.
+            //Algorithme de  Richard Durstenfeld basé sur l'algorithme de Fisher–Yates
+            for (int i = lstJoueurs.Count - 1; i > 0; i--)
+            {
+                int j = App.rand.Next(0, i);
+                Joueur tmp = lstJoueurs[j];
+                lstJoueurs[j] = lstJoueurs[i];
+                lstJoueurs[i] = tmp;
+                //Permuter<int>(lstJoueurs[j], lstJoueurs[i]);
+            }
+
         }
 
         #endregion

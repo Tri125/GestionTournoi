@@ -123,5 +123,6 @@ namespace BaseTP1
             Prenom = prenom;
             Nom = nom;
         }
+        public Joueur() { }
     }
 }

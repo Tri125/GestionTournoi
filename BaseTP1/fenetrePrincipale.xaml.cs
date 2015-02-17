@@ -35,20 +35,6 @@ namespace BaseTP1
             btnFlecheGauche.Content = "\u2190";
         }
 
-        /// <summary>
-        /// Cette méthode a été créée simplement pour montrer un exemple d'utilisation du chargement des joueurs.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            isModified = true;
-            listeJoueurs.Insert(0, new Joueur("-1", "Prénom", "Nom"));
-            dgJoueur.SelectedIndex = 0;
-            dgJoueur.ScrollIntoView(dgJoueur.SelectedItem);
-        }
-
         private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
         {
             if (dgTournois.SelectedIndex >= 0)

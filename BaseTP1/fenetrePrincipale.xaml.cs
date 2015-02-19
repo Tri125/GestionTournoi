@@ -116,7 +116,7 @@ namespace BaseTP1
             {
                 message.Append(" : Bye\n");
             }
-            MessageBox.Show(message.ToString(),"Appariement tour #1",MessageBoxButton.OK,MessageBoxImage.Information);
+            MessageBox.Show(message.ToString(),"Appariement ronde #1",MessageBoxButton.OK,MessageBoxImage.Information);
 
 
         }

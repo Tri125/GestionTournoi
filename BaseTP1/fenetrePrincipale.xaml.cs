@@ -31,25 +31,26 @@ namespace BaseTP1
             listeParticipantsTournoi = new ObservableCollection<Joueur>();
             dgTournois.ItemsSource = listeParticipantsTournoi;
             dgJoueur.ItemsSource = listeJoueurs;
+            dgTournois.CanUserAddRows = true;
             btnFlecheDroite.Content = "\u2192";
             btnFlecheGauche.Content = "\u2190";
         }
 
         private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
         {
-            if (dgTournois.SelectedIndex >= 0)
+            System.Collections.IList t = dgTournois.SelectedItems;
+            for (int i = t.Count; i != 0; i--)
             {
-                listeParticipantsTournoi.RemoveAt(dgTournois.SelectedIndex);
+                listeParticipantsTournoi.Remove((Joueur)t[0] );
             }
-
         }
 
         private void btnFlecheDroite_Click(object sender, RoutedEventArgs e)
         {
-            Joueur selection = dgJoueur.SelectedItem as Joueur;
-            if (!listeParticipantsTournoi.Contains(selection))
+            foreach (Joueur j in dgJoueur.SelectedItems)
             {
-                listeParticipantsTournoi.Insert(0, selection);
+                if (!listeParticipantsTournoi.Contains(j))
+                    listeParticipantsTournoi.Insert(0, j);
             }
         }
 

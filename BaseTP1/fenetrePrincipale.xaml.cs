@@ -105,7 +105,7 @@ namespace BaseTP1
             {
                 message.Append(stackPairing.Pop().Nom);
                 if (stackPairing.Count != 0 && !isNewPair)
-                    message.Append(" vs ");
+                    message.Append(" contre ");
                 else
                     if (isNewPair)
                         message.Append("\n\n");

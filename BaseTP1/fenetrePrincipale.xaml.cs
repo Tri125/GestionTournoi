@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -29,6 +30,7 @@ namespace BaseTP1
             InitializeComponent();
             listeJoueurs = new ObservableCollection<Joueur>();
             listeParticipantsTournoi = new ObservableCollection<Joueur>();
+            listeJoueurs.CollectionChanged += OnCollectionChanged;
             dgTournois.ItemsSource = listeParticipantsTournoi;
             dgJoueur.ItemsSource = listeJoueurs;
             dgTournois.CanUserAddRows = true;
@@ -36,12 +38,20 @@ namespace BaseTP1
             btnFlecheGauche.Content = "\u2190";
         }
 
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                isModified = true;
+            }
+        }
+
         private void btnFlecheGauche_Click(object sender, RoutedEventArgs e)
         {
             System.Collections.IList t = dgTournois.SelectedItems;
             for (int i = t.Count; i != 0; i--)
             {
-                listeParticipantsTournoi.Remove((Joueur)t[0] );
+                listeParticipantsTournoi.Remove((Joueur)t[0]);
             }
         }
 
@@ -112,7 +122,7 @@ namespace BaseTP1
             {
                 message.Append(" : Bye\n");
             }
-            MessageBox.Show(message.ToString(),"Appariement ronde #1",MessageBoxButton.OK,MessageBoxImage.Information);
+            MessageBox.Show(message.ToString(), "Appariement ronde #1", MessageBoxButton.OK, MessageBoxImage.Information);
 
 
         }
@@ -127,17 +137,17 @@ namespace BaseTP1
                 e.CanExecute = false;
         }
 
-        private void dgJoueur_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-            isModified = true;
-        }
-
         private void dgJoueur_InitializingNewItem(object sender, InitializingNewItemEventArgs e)
         {
             Joueur nvJoueur = (Joueur)e.NewItem;
             nvJoueur.Nom = "NomJoueur";
             nvJoueur.Prenom = "PrénomJoueur";
             nvJoueur.NoDCI = "#DCI";
+        }
+
+        private void dgJoueur_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            isModified = true;
         }
 
     }

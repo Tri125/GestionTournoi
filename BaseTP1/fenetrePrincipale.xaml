@@ -39,7 +39,7 @@
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://wiki.esial.net/images/logo_trophy.png-->
                         <Image Source="/trophy.png" Height="27" Width="31" />
-                        <TextBlock Margin="3,0,0,0" Width="100" TextWrapping="Wrap">Génération du tournois</TextBlock>
+                        <TextBlock Margin="3,0,0,0" Width="100" TextWrapping="Wrap">Génération du tournoi</TextBlock>
                     </StackPanel>
                 </Button>
             </ToolBar>

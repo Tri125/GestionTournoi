@@ -50,14 +50,14 @@
                 <ColumnDefinition Width="0.20*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <DataGrid Grid.Column="0"  x:Name="dgJoueur" AutoGenerateColumns="False" CellEditEnding="dgJoueur_CellEditEnding" Margin="10,26,0,22">
+            <DataGrid Grid.Column="0"  x:Name="dgJoueur" AutoGenerateColumns="False" HeadersVisibility="Column" CellEditEnding="dgJoueur_CellEditEnding" Margin="10,26,0,22">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid Grid.Column="2" x:Name="dgTournois" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,26,10,22" >
+            <DataGrid Grid.Column="2" x:Name="dgTournois" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Margin="0,26,10,22" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />

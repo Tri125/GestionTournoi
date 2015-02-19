@@ -71,15 +71,6 @@ namespace BaseTP1
             {
                 chaineListe.Append("#").Append(j.NoDCI).Append(" : ").Append(j.Prenom).Append(" ").Append(j.Nom).AppendLine(".");
             }
-            //MessageBox.Show(chaineListe.ToString());
-
-            /*
-            // À titre d'exemple d'écriture. L'exécution de ce code vide votre liste alors, attention!
-            List<Joueur> lst = new List<Joueur>();
-            lst.Add(new Joueur("12345678", "Joe", "Bleau"));
-
-            Joueur.enregistrerListeJoueurs(lst);
-            */
         }
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -117,14 +108,15 @@ namespace BaseTP1
                     message.Append(" vs ");
                 else
                     if (isNewPair)
-                        message.Append("\n");
+                        message.Append("\n\n");
                 isNewPair = !isNewPair;
+
             }
             if (!isEven)
             {
                 message.Append(" : Bye\n");
             }
-            MessageBox.Show(message.ToString());
+            MessageBox.Show(message.ToString(),"Appariement tour #1",MessageBoxButton.OK,MessageBoxImage.Information);
 
 
         }

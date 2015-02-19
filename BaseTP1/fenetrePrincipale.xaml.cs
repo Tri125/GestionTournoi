@@ -132,6 +132,13 @@ namespace BaseTP1
             isModified = true;
         }
 
+        private void dgJoueur_InitializingNewItem(object sender, InitializingNewItemEventArgs e)
+        {
+            Joueur nvJoueur = (Joueur)e.NewItem;
+            nvJoueur.Nom = "NomJoueur";
+            nvJoueur.Prenom = "PrénomJoueur";
+            nvJoueur.NoDCI = "#DCI";
+        }
 
     }
 }

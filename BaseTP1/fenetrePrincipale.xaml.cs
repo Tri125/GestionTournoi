@@ -87,10 +87,6 @@ namespace BaseTP1
                 e.CanExecute = false;
         }
 
-        private void dgJoueur_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            isModified = true;
-        }
 
         private void Appariment_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -129,6 +125,11 @@ namespace BaseTP1
             }
             else
                 e.CanExecute = false;
+        }
+
+        private void dgJoueur_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            isModified = true;
         }
 
 

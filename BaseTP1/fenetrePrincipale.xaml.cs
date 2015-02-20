@@ -61,10 +61,14 @@ namespace BaseTP1
 
         private void btnFlecheDroite_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Joueur j in dgJoueur.SelectedItems)
+            foreach (var item in dgJoueur.SelectedItems)
             {
-                if (!listeParticipantsTournoi.Contains(j))
-                    listeParticipantsTournoi.Insert(0, j);
+                Joueur joueur = item as Joueur;
+                if (joueur != null)
+                {
+                    if (!listeParticipantsTournoi.Contains(joueur))
+                        listeParticipantsTournoi.Insert(0, joueur);
+                }
             }
         }
 

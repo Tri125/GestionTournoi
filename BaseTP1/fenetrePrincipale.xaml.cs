@@ -30,7 +30,7 @@ namespace BaseTP1
             InitializeComponent();
             listeJoueurs = new ObservableCollection<Joueur>();
             listeParticipantsTournoi = new ObservableCollection<Joueur>();
-            listeJoueurs.CollectionChanged += OnCollectionChanged;
+            listeJoueurs.CollectionChanged += new NotifyCollectionChangedEventHandler(OnCollectionChanged);
             dgTournois.ItemsSource = listeParticipantsTournoi;
             dgJoueur.ItemsSource = listeJoueurs;
             dgTournois.CanUserAddRows = true;
@@ -42,6 +42,10 @@ namespace BaseTP1
         {
             if (e.Action == NotifyCollectionChangedAction.Remove)
             {
+                foreach (Joueur j in e.OldItems)
+                {
+                    listeParticipantsTournoi.Remove(j);
+                }
                 isModified = true;
             }
         }

@@ -6,32 +6,41 @@
         >
     <Grid>
         <Grid.RowDefinitions>
+            <!-- Row contenant le ToolBarTray, taille fixe car l'affichage devenait de taille disproportionner et indisirable. Reste élégant à la vue.-->
             <RowDefinition Height="40"></RowDefinition>
+            <!-- Row contenant le reste des contrôles -->
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <!-- http://www.wpf-tutorial.com/common-interface-controls/toolbar-control/ -->
         <ToolBarTray Grid.Row="0" ToolBarTray.IsLocked="True">
             <ToolBar>
+                <!-- Bouton pour charger le fichier contenant les joueurs -->
                 <Button Name="btnChargement" ToolTip="Chargement de fichier." Click="btnChargement_Click">
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://iconbug.com/data/b2/256/1273899f5ba2d865ab7cacc73314ccdb.png-->
                         <Image Source="load.png" Height="21" Width="41" />
+                        <!--Utilisation d'un TextBlock pour permettre le TextWrapping et ne pas étaler le contrôle horizontalement-->
                         <TextBlock Margin="3,0,0,0" TextWrapping="Wrap">Ouvrir</TextBlock>
                     </StackPanel>
                 </Button>
                 <!-- https://stackoverflow.com/questions/757590/disable-save-button-in-wpf-if-validation-fails -->
                 <Button Name="btnSauvegarde" ToolTip="Sauvegarde la liste de joueurs." Command="Save">
+                    <!--Binding du Bouton avec la Command "Save"-->
                     <Button.CommandBindings>
+                        <!-- Binding des évènements de la Command "Save" -->
                         <CommandBinding Command="Save" 
                         Executed="Save_Executed" CanExecute="Save_CanExecute"/>
                     </Button.CommandBindings>
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://i.stack.imgur.com/OexJT.png-->
                         <Image Source="/save.png" Height="17" Width="41" />
+                        <!--Utilisation d'un TextBlock pour permettre le TextWrapping et ne pas étaler le contrôle horizontalement-->
                         <TextBlock Margin="3,0,0,0" TextWrapping="Wrap">Sauvegarder</TextBlock>
                     </StackPanel>
                 </Button>
                 <!-- https://stackoverflow.com/questions/757590/disable-save-button-in-wpf-if-validation-fails -->
+                <!-- Binding de la Command "NotACommand", au lieu de créer notre propre commande, on utilise "NotACommand" pour ne pas avoir aucun comportement par défault 
+                et au Bind les évènements de la commande à nos propre méthodes définie. -->
                 <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Command="NotACommand" >
                     <Button.CommandBindings>
                         <CommandBinding Command="NotACommand"
@@ -40,6 +49,7 @@
                     <StackPanel Orientation="Horizontal">
                         <!--Source: http://wiki.esial.net/images/logo_trophy.png-->
                         <Image Source="/trophy.png" Height="27" Width="31" />
+                        <!--Utilisation d'un TextBlock pour permettre le TextWrapping et ne pas étaler le contrôle horizontalement-->
                         <TextBlock Margin="3,0,0,0" Width="100" TextWrapping="Wrap">Génération du tournoi</TextBlock>
                     </StackPanel>
                 </Button>
@@ -47,25 +57,36 @@
         </ToolBarTray>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
+                <!--Deux Column de la même taille pour contenir les dataGrid. Column du milieu pour les deux boutons flèches.-->
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="0.20*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <!--dataGrid des Joueurs du système. La génération automatique des colonnes n'est pas utilisé pour pouvoir définir les en-têtes et les tailles.
+            La visibilité des en-têtes est mit en mode "Column". Les row n'ont pas d'en-têtes et le mode "All" réduire la taille du dataGrad pour y rajouter un bouton pour sélectionner tout les éléments.
+            Dans le présent contexte de l'application, il n'y a pas de scénario où tout les joueurs devraient être inscrits. De plus, le coût sur la présentation des données était significative.
+            Inscriptions de méthodes à des évènements du dataGrid pour permettre la détection lorsque l'édition d'une cellule ce termine et qu'un nouveau objet est nouvellement initializer.-->
             <DataGrid Grid.Column="0"  x:Name="dgJoueur" AutoGenerateColumns="False" HeadersVisibility="Column" CellEditEnding="dgJoueur_CellEditEnding" InitializingNewItem="dgJoueur_InitializingNewItem" Margin="10,26,0,22">
                 <DataGrid.Columns>
+                <!-- Définition des en-têtes et binding avec les attributs. -->
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
+            <!-- dataGrid des Joueurs inscrits à un tournoi. Génération automatique des colonnes n'est pas utilisé pour pouvoir définir les en-têtes et les tailles.
+            Visibilité des en-têtes est mit en mode "Column" pour les mêmes raisons que dgJoueur. En lecture seul, car aucune modification devrait ce faire à cette grille,
+            les données reflètent celles de dgJoueur.-->
             <DataGrid Grid.Column="2" x:Name="dgTournois" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Margin="0,26,10,22" >
                 <DataGrid.Columns>
+                    <!--Binding des en-têtes avec des attributs.-->
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />
                     <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="2*" />
                     <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="2*" />
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                <!--Bouton de flèche droite et gauche pour inscrire un joueur au tournoi ou le retirer.-->
                 <Button x:Name="btnFlecheDroite" Margin="0,0,0,20" Width="49" Height="21" Click="btnFlecheDroite_Click"/>
                 <Button x:Name="btnFlecheGauche"  Width="49" Height="21" Click="btnFlecheGauche_Click"/>
             </StackPanel>

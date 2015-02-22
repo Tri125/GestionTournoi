@@ -198,7 +198,8 @@ namespace BaseTP1
             bool isNewPair = true;
             while (stackPairing.Count != 0)
             {
-                message.Append(stackPairing.Pop().Nom);
+                Joueur tmp = stackPairing.Pop();
+                message.Append(tmp.Prenom).Append(" ").Append(tmp.Nom);
                 //S'il reste d'autres joueurs et que c'est le premier joueur de la paire.
                 if (stackPairing.Count != 0 && isNewPair)
                     message.Append(" contre ");

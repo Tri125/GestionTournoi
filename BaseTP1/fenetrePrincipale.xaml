@@ -39,7 +39,7 @@
                     </StackPanel>
                 </Button>
                 <!-- https://stackoverflow.com/questions/757590/disable-save-button-in-wpf-if-validation-fails -->
-                <!-- Binding de la Command "NotACommand", au lieu de créer notre propre commande, on utilise "NotACommand" pour ne pas avoir aucun comportement par défault 
+                <!-- Binding de la Command "NotACommand", au lieu de créer notre propre commande, on utilise "NotACommand" pour ne pas avoir aucun comportement par défault (les commandes prédéfinies sont innappropriées, mais leur fonctionnement générale est recherché).
                 et au Bind les évènements de la commande à nos propre méthodes définie. -->
                 <Button Name="btnAppariment" ToolTip="Génère les appariements de joueurs du tournois." Command="NotACommand" >
                     <Button.CommandBindings>
@@ -77,7 +77,7 @@
             <!-- dataGrid des Joueurs inscrits à un tournoi. Génération automatique des colonnes n'est pas utilisé pour pouvoir définir les en-têtes et les tailles.
             Visibilité des en-têtes est mit en mode "Column" pour les mêmes raisons que dgJoueur. En lecture seul, car aucune modification devrait ce faire à cette grille,
             les données reflètent celles de dgJoueur.-->
-            <DataGrid Grid.Column="2" x:Name="dgTournois" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Margin="0,26,10,22" >
+            <DataGrid Grid.Column="2" x:Name="dgTournoi" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" Margin="0,26,10,22" >
                 <DataGrid.Columns>
                     <!--Binding des en-têtes avec des attributs.-->
                     <DataGridTextColumn Header="DCI" Binding="{Binding NoDCI}" Width="1*" />

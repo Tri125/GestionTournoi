@@ -88,11 +88,8 @@ namespace BaseTP1
         /// <param name="lstJoueurs">La liste qui doit être travaillée par l'algorithme</param>
         public static void randomListeJoueurs(List<Joueur> lstJoueurs)
         { 
-            // C'est à vous de coder cette partie. 
-            // Utilisez l'algorithme Fisher-Yates (facile à trouver sur internet) et respectez le "contrat" de la méthode.
-
-            //Navigue dans chaque position du Tableau en commencant par la dernière position. Un nombre généré au hasard (dans l'intervalle 0,i) pour inverser la valeur entre
-            //le nombre situé à la position que nous sommes et n'importe quel autre dans l'intervalle. À la fin chaque nombre a été permuté au moins une fois et au hasard.
+            //Index i commence à 0 et à chaque itération augmente de un et ce termine à n-1 . À chaque itération: un nombre j généré au hasard (dans l'intervalle i à n-1) est utilisé pour permuter la valeur de l'élément
+            // à la position i et l'élément de la position j. À la fin de l'algorithme, chaque éléments a été permuté au moins une fois au hasard.
             //Algorithme de  Richard Durstenfeld basé sur l'algorithme de Fisher–Yates
             for (int i = 0; i < lstJoueurs.Count - 1; i++)
             {

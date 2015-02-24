@@ -202,7 +202,7 @@ namespace BaseTP1
                 message.Append(tmp.Prenom).Append(" ").Append(tmp.Nom);
                 //S'il reste d'autres joueurs et que c'est le premier joueur de la paire.
                 if (stackPairing.Count != 0 && isNewPair)
-                    message.Append(" contre ");
+                    message.Append(" \tcontre\t");
                 else
                     //Si c'est le deuxième joueur de la paire.
                     if (!isNewPair)
